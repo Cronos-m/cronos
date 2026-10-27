@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronos | Ilusionismo y Magia</title>
+    <meta name="description" content="Sitio oficial de Cronos. Espectáculos de magia, ilusionismo y close-up para eventos exclusivos.">
+    
+    <!-- Metaetiquetas de Seguridad y SEO -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Cronos | Ilusionismo y Magia">
+    <meta property="og:description" content="Espectáculos de magia para eventos exclusivos.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fuentes de Google (Playfair Display para elegancia, Inter para legibilidad) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Cabecera y Navegación -->
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="#" class="logo">Cronos</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#espectaculos">Espectáculos</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Hero (Inicio) -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>El arte de lo imposible.</h1>
+                <p>Magia e ilusionismo diseñados para dejar una huella imborrable en tu evento.</p>
+                <a href="#contacto" class="btn-primary">Reservar fecha</a>
+            </div>
+        </section>
+
+        <!-- Sección Sobre Mí (Factor Humano) -->
+        <section id="sobre-mi" class="section-about">
+            <div class="container">
+                <h2>Detrás del sombrero</h2>
+                <div class="about-grid">
+                    <div class="about-image">
+                        <!-- Instrucción: Reemplazar con una foto real tuya, en blanco y negro o con iluminación dramática -->
+                        <img src="ruta/a/tu-foto-real.jpg" alt="Cronos, mago e ilusionista">
+                    </div>
+                    <div class="about-text">
+                        <p>No creo en la magia sobrenatural, creo en la psicología, la práctica obsesiva y la conexión humana. Llevo más de una década estudiando cómo funciona la atención para poder romperla.</p>
+                        <p>Cada espectáculo que diseño es único. No repito rutinas de libro; adapto cada efecto a la audiencia que tengo enfrente, porque el verdadero truco no está en las cartas, sino en las personas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto con Formulario Seguro -->
+        <section id="contacto" class="section-contact">
+            <div class="container">
+                <h2>Hablemos de tu evento</h2>
+                <p>Cuéntame los detalles y diseñaré una experiencia a medida.</p>
+                
+                <!-- Formulario de contacto -->
+                <!-- Nota para el programador: El action debe apuntar a tu backend (PHP, Node, etc.) -->
+                <form id="contact-form" action="/api/contacto" method="POST" class="contact-form">
+                    
+                    <!-- Campo Honeypot: Los bots lo rellenarán, los humanos no. -->
+                    <!-- Si 'website' tiene contenido en el backend, se descarta el envío. -->
+                    <div class="honeypot" aria-hidden="true">
+                        <label for="website">No rellenar este campo</label>
+                        <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Detalles del evento</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+
+                    <!-- Checkbox de aceptación de política de privacidad -->
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="privacidad" name="privacidad" required>
+                        <label for="privacidad">He leído y acepto la <a href="privacidad.html">Política de Privacidad</a>.</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página con enlaces legales -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Cronos Magia. Todos los derechos reservados.</p>
+            <nav class="legal-nav">
+                <a href="aviso-legal.html">Aviso Legal</a>
+                <a href="privacidad.html">Política de Privacidad</a>
+                <a href="cookies.html">Política de Cookies</a>
+                <a href="terminos.html">Términos y Condiciones</a>
+            </nav>
+        </div>
+    </footer>
+
+
+    <!-- Banner de Cookies Rediseñado -->
+    <div id="cookie-banner" class="cookie-premium-banner" style="display: none;">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <h4>¡Hey galletas!</h4>
+                <p>Nos encantan las galletas reales, pero las digitales solo sirven para mejorar el funcionamiento del sitio.¿Nos aceptas un par?</p>
+            </div>
+            <div class="cookie-banner-actions">
+                <button id="reject-cookies" class="btn-cookie btn-reject">No, gracias</button>
+                <button id="accept-cookies" class="btn-cookie btn-accept">Galletas? ¡SI!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner temporal de despedida triste -->
+    <div id="cookie-farewell" class="cookie-farewell-banner" style="display: none;">
+        <p>Entendido... no habrá galletas esta vez. 😞</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="cookie-manager.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+/* =========================================
+   RESET Y VARIABLES GLOBALES
+   ========================================= */
+:root {
+    --color-bg: #0d0d0d;         /* Negro profundo, no negro puro, es más elegante */
+    --color-surface: #1a1a1a;    /* Gris muy oscuro para secciones */
+    --color-text: #e0e0e0;       /* Gris claro para lectura cómoda */
+    --color-heading: #ffffff;    /* Blanco puro para títulos */
+    --color-accent: #c5a059;     /* Dorado apagado/bronce, evita el dorado chillón */
+    --color-muted: #888888;      /* Gris para textos secundarios */
+    
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-heading);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* =========================================
+   TIPOGRAFÍA
+   ========================================= */
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    color: var(--color-heading);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: var(--spacing-md); }
+
+/* =========================================
+   COMPONENTES REUTILIZABLES
+   ========================================= */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+}
+
+.btn-secondary {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+}
+
+/* =========================================
+   CABECERA Y NAVEGACIÓN
+   ========================================= */
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(13, 13, 13, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-heading);
+    font-style: italic;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+.nav-links a {
+    color: var(--color-text);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   SECCIÓN HERO
+   ========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--color-bg); /* Fondo base oscuro */
+}
+
+/* Imagen decorativa con baja opacidad */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('ruta/a/tu-foto-decorativa.jpg') center/cover no-repeat;
+    opacity: 0.15; /* Muy baja opacidad */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-md);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================
+   SECCIÓN SOBRE MÍ
+   ========================================= */
+.section-about {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-surface);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.about-image img {
+    filter: grayscale(100%) contrast(1.1); /* Efecto elegante en blanco y negro */
+    border: 1px solid var(--color-accent);
+    padding: 10px;
+}
+
+.about-text p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.05rem;
+}
+
+/* =========================================
+   SECCIÓN CONTACTO Y FORMULARIO
+   ========================================= */
+.section-contact {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: var(--spacing-md) auto 0;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-muted);
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--color-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-top: 4px;
+}
+
+.checkbox-group label {
+    font-size: 0.85rem;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--color-text);
+}
+
+/* Honeypot: Ocultar visualmente pero mantenerlo en el DOM para los bots */
+.honeypot {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+/* =========================================
+   PIE DE PÁGINA
+   ========================================= */
+.site-footer {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-surface);
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.legal-nav {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.legal-nav a {
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   BANNER DE COOKIES PREMIUM
+   ========================================= */
+.cookie-premium-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 800px;
+    background: rgba(26, 26, 26, 0.85); /* Gris muy oscuro semitransparente */
+    backdrop-filter: blur(16px);         /* Efecto vidrio esmerilado */
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(197, 160, 89, 0.3); /* Borde dorado sutil */
+    border-radius: 12px;
+    padding: 1.5rem;
+    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    
+    /* Animación de entrada suave */
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.cookie-banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cookie-banner-text h4 {
+    font-family: var(--font-serif);
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.5px;
+}
+
+.cookie-banner-text p {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cookie-banner-actions {
+    display: flex;
+    gap: 0.8rem;
+    flex-shrink: 0;
+}
+
+.btn-cookie {
+    padding: 0.6rem 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-accept {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+}
+
+.btn-accept:hover {
+    background-color: #d4b26a; /* Dorado un poco más brillante al hover */
+    transform: translateY(-1px);
+}
+
+.btn-reject {
+    background-color: transparent;
+    color: var(--color-muted);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-reject:hover {
+    color: var(--color-heading);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================
+   PÁGINAS LEGALES
+   ========================================= */
+.legal-content {
+    padding: var(--spacing-xl) 0;
+    padding-top: calc(var(--spacing-xl) + 80px); /* Compensar header fijo */
+    min-height: 100vh;
+}
+
+.legal-content h1 {
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: var(--spacing-sm);
+}
+
+.legal-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.legal-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-accent);
+}
+
+.legal-section h3 {
+    font-size: 1.2rem;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-heading);
+}
+
+.legal-section p, .legal-section ul {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.legal-section ul {
+    padding-left: var(--spacing-md);
+}
+
+/* Tabla de Cookies */
+.cookie-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.cookie-table th, .cookie-table td {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    text-align: left;
+}
+
+.cookie-table th {
+    background-color: var(--color-surface);
+    color: var(--color-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+.cookie-table td {
+    color: var(--color-text);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Se puede implementar un menú hamburguesa aquí */
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .about-image img {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Banner de cookies responsive */
+    .cookie-premium-banner {
+        bottom: 10px;
+        width: calc(100% - 20px);
+        padding: 1.2rem;
+    }
+
+    .cookie-banner-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+    }
+
+    .cookie-banner-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .btn-cookie {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+    
+    /* Tabla de cookies responsive */
+    .cookie-table {
+        font-size: 0.8rem;
+    }
+    .cookie-table th, .cookie-table td {
+        padding: var(--spacing-xs);
+    }
+}
+
+
+
+/* =========================================
+   BANNER TEMPORAL DE DESPEDIDA
+   ========================================= */
+.cookie-farewell-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 600px;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    z-index: 2001;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    
+    /* Animación de entrada */
+    animation: farewellSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cookie-farewell-banner p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-muted);
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Animación de entrada */
+@keyframes farewellSlideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 30px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Animación de salida */
+@keyframes farewellSlideOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, 30px);
+    }
+}
+
+/* Clase para aplicar la animación de salida */
+.cookie-farewell-banner.fade-out {
+    animation: farewellSlideOut 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .cookie-farewell-banner {
+        bottom: 10px;
+        width: calc(100% - 20px);
+        padding: 1rem 1.2rem;
+    }
+    
+    .cookie-farewell-banner p {
+        font-size: 0.9rem;
+    }
+}
